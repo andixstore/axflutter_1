@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:fl_chart/fl_chart.dart';
 
 void main() {
-  runApp(BottomNavigationApp());
+  runApp(const MyApp());
+//   runApp(BottomNavigationApp());
 }
 
-class BottomNavigationApp extends StatelessWidget {
+// class BottomNavigationApp extends StatelessWidget {
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -48,19 +52,19 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
         },
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.home, color: Colors.blue),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
+            icon: Icon(Icons.search, color: Colors.green),
             label: 'Search',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
+            icon: Icon(Icons.favorite, color: Colors.red),
             label: 'Favorites',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(Icons.person, color: Colors.grey),
             label: 'Profile',
           ),
         ],
@@ -70,14 +74,59 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
 }
 
 class HomePage extends StatelessWidget {
+  List<PieChartSectionData> pieChartData = [
+    PieChartSectionData(
+      color: Colors.red,
+      value: 30,
+      title: '30%',
+      radius: 150,
+      titleStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+    ),
+    PieChartSectionData(
+      color: Colors.green,
+      value: 20,
+      title: '20%',
+      radius: 150,
+      titleStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+    ),
+    PieChartSectionData(
+      color: Colors.blue,
+      value: 50,
+      title: '50%',
+      radius: 150,
+      titleStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'Home Page',
-        style: TextStyle(fontSize: 24),
+    return Scaffold(
+      // child: Text(
+      //   'Halaman utama',
+      //   style: TextStyle(fontSize: 24),
+      // ),
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        title: Text('FL Chart Example'),
+      ),
+      body: Center(
+        child: AspectRatio(
+          aspectRatio: 1.3,
+          child: PieChart(
+            PieChartData(
+              sections: pieChartData,
+              centerSpaceRadius: 10,
+            ),
+          ),
+        ),
       ),
     );
+    // return Center(
+    // child: Text(
+    // 'Halaman utama',
+    // style: TextStyle(fontSize: 24),
+    // ),
+    // );
   }
 }
 
