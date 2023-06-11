@@ -47,6 +47,7 @@ class DashboardPage extends StatelessWidget {
                   titlesData: FlTitlesData(
                     show: true,
                     bottomTitles: SideTitles(
+                      // or
                       showTitles: true,
                       reservedSize: 22,
                       textStyle: TextStyle(
