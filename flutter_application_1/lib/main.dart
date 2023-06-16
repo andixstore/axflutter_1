@@ -1,38 +1,25 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter_web/material.dart';
-// import 'package:flutter_web_ui/ui.dart' as web_ui;
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Web Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Flutter Web Demo'),
-      ),
-      body: Center(
-        child: Text(
-          'Welcome to Flutter Web!',
-          style: TextStyle(fontSize: 24),
-        ),
-      ),
+      title: 'First App',
+      home: Scaffold(
+          appBar: AppBar(
+            title: Text('Aplikasi Flutter Petanikode'),
+            backgroundColor: Colors.deepOrange,
+          ),
+          body: Column(children: <Widget>[
+            Image.network('https://www.petanikode.com/img/flutter/flutter.png'),
+            Text(
+              'Belajar Flutter untuk Pemula',
+              style: TextStyle(fontSize: 24, fontFamily: "Serif", height: 2.0),
+            ),
+            Text('oleh Petani Kode')
+          ])),
     );
   }
 }
