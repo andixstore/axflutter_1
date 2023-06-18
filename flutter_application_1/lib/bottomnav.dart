@@ -16,13 +16,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: BottomNavigationPage(),
+      home: const BottomNavigationPage(),
     );
   }
 }
 
 class BottomNavigationPage extends StatefulWidget {
+  const BottomNavigationPage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _BottomNavigationPageState createState() => _BottomNavigationPageState();
 }
 
@@ -31,16 +34,16 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
 
   final List<Widget> _pages = [
     HomePage(),
-    SearchPage(),
-    FavoritesPage(),
-    ProfilePage(),
+    const SearchPage(),
+    const FavoritesPage(),
+    const ProfilePage(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Bottom Navigation'),
+        title: const Text('Bottom Navigation'),
       ),
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
@@ -50,7 +53,7 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
             _currentIndex = index;
           });
         },
-        items: [
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home, color: Colors.blue),
             label: 'Home',
@@ -73,6 +76,7 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
   }
 }
 
+// ignore: must_be_immutable
 class HomePage extends StatelessWidget {
   List<PieChartSectionData> pieChartData = [
     PieChartSectionData(
@@ -80,23 +84,25 @@ class HomePage extends StatelessWidget {
       value: 30,
       title: '30%',
       radius: 150,
-      titleStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+      titleStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
     ),
     PieChartSectionData(
       color: Colors.green,
       value: 20,
       title: '20%',
       radius: 150,
-      titleStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+      titleStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
     ),
     PieChartSectionData(
       color: Colors.blue,
       value: 50,
       title: '50%',
       radius: 150,
-      titleStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+      titleStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
     ),
   ];
+
+  HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -107,7 +113,7 @@ class HomePage extends StatelessWidget {
       // ),
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text('FL Chart Example'),
+        title: const Text('FL Chart Example'),
       ),
       body: Center(
         child: AspectRatio(
@@ -131,9 +137,11 @@ class HomePage extends StatelessWidget {
 }
 
 class SearchPage extends StatelessWidget {
+  const SearchPage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text(
         'Search Page',
         style: TextStyle(fontSize: 24),
@@ -143,9 +151,11 @@ class SearchPage extends StatelessWidget {
 }
 
 class FavoritesPage extends StatelessWidget {
+  const FavoritesPage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text(
         'Favorites Page',
         style: TextStyle(fontSize: 24),
@@ -155,9 +165,11 @@ class FavoritesPage extends StatelessWidget {
 }
 
 class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text(
         'Profile Page',
         style: TextStyle(fontSize: 24),

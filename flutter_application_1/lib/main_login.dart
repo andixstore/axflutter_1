@@ -65,7 +65,9 @@ class _LoginPageState extends State<LoginPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
+                      // ------------ // ganti tujuan login
                       builder: (context) => DashboardPage(),
+                      // ------------ // ganti tujuan login
                     ),
                   );
                 } else {

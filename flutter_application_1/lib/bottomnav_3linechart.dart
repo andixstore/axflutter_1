@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -14,13 +14,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ChartPage(),
+      home: const ChartPage(),
     );
   }
 }
 
 class ChartPage extends StatefulWidget {
+  const ChartPage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _ChartPageState createState() => _ChartPageState();
 }
 
@@ -31,21 +34,21 @@ class _ChartPageState extends State<ChartPage> {
       value: 30,
       title: '30%',
       radius: 150,
-      titleStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+      titleStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
     ),
     PieChartSectionData(
       color: Colors.green,
       value: 20,
       title: '20%',
       radius: 150,
-      titleStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+      titleStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
     ),
     PieChartSectionData(
       color: Colors.blue,
       value: 50,
       title: '50%',
       radius: 150,
-      titleStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+      titleStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
     ),
   ];
 
@@ -53,7 +56,7 @@ class _ChartPageState extends State<ChartPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('FL Chart Example'),
+        title: const Text('FL Chart Example'),
       ),
       body: Center(
         child: AspectRatio(
